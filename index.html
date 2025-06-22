@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JNR Games Store - Download your favorite PC games for free">
+    <title>JNR Games Store | Free PC Game Downloads</title>
+    <link rel="icon" href="/Games/images/jnr gs logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/game-store-styles.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/game-cards.css"> <link rel="stylesheet" href="/css/donation.css"> <link rel="stylesheet" href="/css/counter.css"> <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+
+    <style>
+        /* Hero Slider Styles */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 450px;
+            overflow: hidden;
+            background-color: #0a0a1a;
+        }
+        .hero-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-slide.active { opacity: 1; }
+        .hero-content-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+        .hero-badge-dynamic {
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .hero-title-dynamic {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .hero-subtitle-dynamic {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+        .hero-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: rgba(0,0,0,0.3);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .hero-meta .fas, .hero-meta .far { color: var(--primary); }
+        .hero-prev, .hero-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px; height: 50px;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .hero-prev:hover, .hero-next:hover { background: rgba(0,0,0,0.8); }
+        .hero-prev { left: 20px; }
+        .hero-next { right: 20px; }
+        .hero-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        .hero-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .hero-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        /* Live Search Results Styling */
+        .live-search-container { position: relative; }
+        .live-search-results {
+            position: absolute;
+            top: 100%; left: 0;
+            width: 100%;
+            background-color: #1a1a2e;
+            border: 1px solid var(--primary);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        .live-search-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid #2a2a4e;
+            transition: background-color 0.2s ease;
+        }
+        .live-search-item:last-child { border-bottom: none; }
+        .live-search-item:hover { background-color: #2a2a4e; }
+        .search-item-img {
+            width: 40px; height: 50px;
+            object-fit: cover;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        .search-item-title { font-size: 0.9rem; }
+        .live-search-item.no-results {
+            padding: 15px;
+            text-align: center;
+            color: #aaa;
+            font-style: italic;
+        }
+      /* Fixed Social Media Links */
+      .social-media-fixed {
+          position: fixed;
+          bottom: 20px; right: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          z-index: 1000;
+      }
+      .social-media-fixed a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px; height: 50px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .social-media-fixed a:hover {
+          transform: scale(1.1);
+          background-color: rgba(255, 255, 255, 0.2);
+      }
+      .social-media-fixed img {
+          width: 32px; height: 32px;
+      }
+
+      /* == PROMOTIONAL SECTION CSS - START == */
+      .promo-section {
+            background-color: #1a1a2e; /* Fallback color */
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--primary);
+            border-bottom: 1px solid var(--primary);
+        }
+        .promo-content {
+            background-color: rgba(10, 10, 26, 0.7); /* Dark semi-transparent background */
+            backdrop-filter: blur(5px); /* Frosted glass effect */
+            padding: 40px;
+            border-radius: 10px;
+            color: #fff;
+        }
+        .promo-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .promo-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .promo-text {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+        .promo-content .btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+      /* == PROMOTIONAL SECTION CSS - END == */
+    </style>
+</head>
+<body id="home-page">
+    <div class="loader-wrapper">
+        <div class="loader">
+          <div class="loader-logo"><img src="/Games/images/jnr gs logo.png" alt="JNR Games Store"></div>
+          <div class="loader-bar"><div class="loader-progress"></div></div>
+          <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="donation-ticker">
+            <div class="ticker-header">Recent Supporters</div>
+            <div class="ticker-content"></div>
+        </div>
+        <div class="container navbar-container">
+            <a href="/index.html" class="logo">
+                <img src="/Games/images/jnr gs logo.png" alt="JNR Games Store">
+                <span class="logo-text">JNR <br><span>Games</span></span><br><br><br><br><br>
+            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <div class="nav-links" id="navLinks">
+                <a href="/index.html" class="nav-link active">Home</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="https://blog-chat.cloudnet.one/" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/available-games.html" class="nav-link">Games</a>
+                <a href="/ytchannel.html" class="nav-link">Channels</a>
+                <a href="https://forms.gle/xJTTuoYGUe6YYD8x5" class="nav-link" target="_blank" rel="noopener noreferrer">Request</a>
+                <div class="live-search-container">
+                    <input type="text" id="liveSearchInput" placeholder="Search games...">
+                    <div id="liveSearchResults" class="live-search-results"></div>
+                </div>
+                <a href="/donations.html" class="donate-btn active"><span></span><span></span><span></span><span></span>Donate</a>
+            </div>
+            <div id="navAuthSection">
+              <div id="notification"><i id="notifBell" class="fas fa-bell"></i><span id="notifBadge">0</span></div>
+              <button id="googleLogin">Login with Google</button>
+              <button id="logout">Logout</button>
+              <div id="userProfile"><img id="userPic" src="" alt="User"><span id="userName"></span></div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/Games/images/default-hero-bg.jpg');">
+                <div class="container hero-content">
+                    <h1 class="hero-title">Loading Awesome Games...</h1>
+                    <p class="hero-subtitle">Please wait a moment.</p>
+                </div>
+            </div>
+        </div>
+        <button class="hero-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="hero-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="hero-dots"></div>
+    </section>
+
+    <section class="counter-section">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-item"><div class="counter-number" id="total-games-count">0</div><div class="counter-label">Total Games</div></div>
+                <div class="counter-item"><div class="counter-number" id="happy-users-count">0</div><div class="counter-label">Members</div></div>
+                <div class="counter-item"><div class="counter-number" id="team-members-count">0</div><div class="counter-label">Visitors</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section featured-games-section" id="featured-games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Games</h2>
+                <a href="/available-games.html" class="view-all">View All Games <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="games-grid" id="featured-games-grid"><p>Loading featured games...</p></div>
+        </div>
+    </section>
+
+    <section class="section multiplayer-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recent Games</h2>
+                <a href="/available-games.html?filter=multiplayer" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="games-grid" id="multiplayer-games-grid"><p>Loading recent games...</p></div>
+        </div>
+    </section>
+
+    <section class="section featured-apps-section" id="featured-apps">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Application Software</h2>
+                <a href="/available-games.html" class="view-all">View All Apps <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="games-grid" id="featured-apps-grid">
+                <div class="game-card" data-aos="fade-up">
+                    <div class="game-image"><img src="https://ymcinema.com/wp-content/uploads/2021/03/Premiere-Pro-2021-ver.-15-Released-Whats-New-.008.jpeg" alt="Adobe Premiere Pro 2021" onerror="this.onerror=null;this.src='/Games/images/placeholder_game.png';"><div class="game-badge">Editing</div></div>
+                    <div class="game-content"><h3 class="game-title">Adobe Premiere Pro 2021</h3><p class="game-meta">Video Editing Software</p><span class="game-size">1.6 GB</span><a href="/game-detail-template.html?id=adobepremierepro2021" class="btn btn-primary btn-sm">Download</a></div>
+                </div>
+                <div class="game-card" data-aos="fade-up">
+                    <div class="game-image"><img src="https://vatvostudio.vn/wp-content/uploads/2024/10/Adobe-Photoshop-2025.jpg" alt="Adobe Photoshop 2025" onerror="this.onerror=null;this.src='/Games/images/placeholder_game.png';"><div class="game-badge">Design</div></div>
+                    <div class="game-content"><h3 class="game-title">Adobe Photoshop 2025</h3><p class="game-meta">Photo Editing | AI Tools</p><span class="game-size">4.86 GB</span><a href="/game-detail-template.html?id=adobephotoshop2025" class="btn btn-primary btn-sm">Download</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Promotional Section for V2Ray Configs -->
+    <section class="section promo-section" data-aos="zoom-in">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-icon"><i class="fas fa-shield-alt"></i></div>
+                <h2 class="promo-title">Get Free, Secure & Fast V2Ray Configs</h2>
+                <p class="promo-text">
+                    Protect your privacy and enjoy a faster internet connection. Visit our partner site to get your free V2Ray configurations now!
+                </p>
+                <a href="https://cloudnet.one/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit & Get Configs</a>
+            </div>
+        </div>
+    </section>
+    <!-- End of Promotional Section -->
+
+    <section class="section categories-section">
+        <div class="container">
+            <h2 class="section-title">Game Categories</h2>
+            <div class="categories-grid">
+                <a href="/available-games.html?category=action" class="category-card" data-aos="fade-right"><div class="category-icon"><i class="fas fa-fist-raised"></i></div><h3>Action</h3><p>High Octane</p></a>
+                <a href="/available-games.html?category=adventure" class="category-card" data-aos="fade-up"><div class="category-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Adventure</h3><p>Epic Journeys</p></a>
+                <a href="/available-games.html?category=fps" class="category-card" data-aos="fade-up"><div class="category-icon"><i class="fas fa-gun"></i></div><h3>FPS</h3><p>First-Person</p></a>
+                <a href="/available-games.html?category=multiplayer" class="category-card" data-aos="fade-left"><div class="category-icon"><i class="fas fa-users"></i></div><h3>Multiplayer</h3><p>Play Together</p></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section trending-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Trending Now</h2>
+                <a href="/available-games.html?sort=popular" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="trending-carousel-container">
+                <div class="trending-carousel"><p>Loading trending games...</p></div>
+            </div>
+            <div class="trending-controls">
+                <button class="trending-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="trending-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About JNR Games Store</h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>JNR Games Store is your premier destination for high-quality PC game downloads...</p>
+                    <a href="/about.html" class="btn btn-outline mt-3">Learn More About Us</a>
+                </div>
+                <div class="about-image" data-aos="fade-left"><img src="/Games/images/jnr gs logo.png" alt="JNR Games Store"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><img src="/Games/images/jnr gs logo.png" alt="JNR Games Store"><span class="footer-logo-text">JNR <span>Games</span></span></div>
+                    <p class="footer-about">Your premier destination for high-quality game downloads. We offer a wide selection of games across all genres.</p>
+                    <div class="footer-social">
+                        <a href="https://discord.gg/MmqPvcZC" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                        <a href="https://chat.whatsapp.com/KEDTJi6ZqIf5fsSYPyzUB3" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/cloudnet6000" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.tiktok.com/@cloudnet6000?is_from_webapp=1&sender_device=pc" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@jnrgamesstore6000" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/index.html" class="footer-link">Home</a></li>
+                        <li><a href="/about.html" class="footer-link">About Us</a></li>
+                        <li><a href="/available-games.html" class="footer-link">Games List</a></li>
+                        <li><a href="/donations.html" target="_blank" rel="noopener noreferrer" class="footer-link">Request Games</a></li>
+                        <li><a href="/search/search.html" class="footer-link">Search Games</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="/faq.html" class="footer-link">FAQ</a></li>
+                        <li><a href="/contact.html" class="footer-link">Installation Help</a></li>
+                        <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
+                        <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="/tos.html" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:jnrsanta249@gmail.com" class="footer-link">jnrsanta249@gmail.com</a></li>
+                        <li><a href="https://chat.whatsapp.com/KEDTJi6ZqIf5fsSYPyzUB3" target="_blank" rel="noopener noreferrer" class="footer-link">WhatsApp Group</a></li>
+                        <li><a href="https://t.me/cloudnet6000" target="_blank" rel="noopener noreferrer" class="footer-link">Telegram Channel</a></li>
+                        <li><a href="/donations.html" class="footer-link donate-link">Donate to Support Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="currentYear"></span> JNR Games Store. All Rights Reserved.</p>
+                <span style="pointer-events: none; cursor: default;"><script src="https://freevisitorcounters.com/en/home/counter/1323719/t/11"></script></span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    
+    <div id="notifPopup"><h3>🆕 New Games</h3><ul id="notifList"></ul></div>
+    
+    <div class="social-media-fixed">
+        <a href="https://whatsapp.com/channel/0029VawgHtz2v1IppPsFv11P" target="_blank" rel="noopener noreferrer" title="WhatsApp Channel"><img src="https://img.icons8.com/?size=100&id=d5ntEsf0JRhM&format=png&color=25D366" alt="WhatsApp"></a>
+        <a href="https://t.me/jnrgamesstore" target="_blank" rel="noopener noreferrer" title="Telegram Channel"><img src="https://img.icons8.com/?size=100&id=MIMjVKoXINIT&format=png&color=0088CC" alt="Telegram"></a>
+        <a href="https://discord.gg/gUzSjRJZ" target="_blank" rel="noopener noreferrer" title="Discord Server"><img src="https://img.icons8.com/?size=100&id=M725CLW4L7wE&format=png&color=5865F2" alt="Discord"></a>
+    </div>
+
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <script type="module" src="/js/auth.js"></script> 
+    <script src="/js/game-store-script.js"></script> 
+    <script src="/js/donations.js"></script> 
+    <script src="/js/counter.js"></script> 
+    <script src="/js/app.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn more about JNR Games Store - Your premier destination for free PC game downloads">
+    <title>About Us | JNR Games Store</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="Games/images/jnr gs logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/game-store-styles.css">
+    <link rel="stylesheet" href="css/donation.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/auth.css">
+
+    <style>
+        /* == PROMOTIONAL SECTION CSS - START == */
+      .promo-section {
+            background-color: #1a1a2e; /* Fallback color */
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--primary);
+            border-bottom: 1px solid var(--primary);
+        }
+        .promo-content {
+            background-color: rgba(10, 10, 26, 0.7); /* Dark semi-transparent background */
+            backdrop-filter: blur(5px); /* Frosted glass effect */
+            padding: 40px;
+            border-radius: 10px;
+            color: #fff;
+        }
+        .promo-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .promo-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .promo-text {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+        .promo-content .btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+      /* == PROMOTIONAL SECTION CSS - END == */
+      </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Overlay -->
+<div class="nav-overlay" id="navOverlay"></div> 
+
+
+    
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="donation-ticker"><div class="ticker-header">Recent Supporters</div><div class="ticker-content"></div></div>
+        <div class="container navbar-container">
+            <a href="/index.html" class="logo">
+                <img src="/Games/images/jnr gs logo.png" alt="JNR Games Store">
+                <span class="logo-text">JNR <br><span>Games</span></span> <br><br><br><br><br>
+            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link active">About</a>
+                <a href="https://blog-chat.cloudnet.one/" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="/available-games.html" class="nav-link ">Games</a>
+                <a href="/ytchannel.html" class="nav-link">Channels</a>
+                <a href="https://forms.gle/xJTTuoYGUe6YYD8x5" class="nav-link" target="_blank" rel="noopener noreferrer">Request</a>
+                
+                <a href="/donations.html" class="donate-btn active">
+                    <span></span><span></span><span></span><span></span>
+                     Donate
+                </a>               
+            </div>
+            <div id="navAuthSection">
+              <div id="notification"><i id="notifBell" class="fas fa-bell"></i><span id="notifBadge">0</span></div>
+              <button id="googleLogin">Login with Google</button><button id="logout">Logout</button>
+              <div id="userProfile"><img id="userPic" src="" alt="User"><span id="userName"></span></div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero about-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-aos="fade-up">About JNR Games Store</h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Our Story, Mission, and Team</p>
+                <div class="hero-btns" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#our-story" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i> Our Story
+                    </a>
+                    <a href="#team" class="btn btn-outline">
+                        <i class="fas fa-users"></i> Meet The Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section about-story-section" id="our-story">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-subtitle">How it all began</p>
+            </div>
+            
+            <div class="about-story-content">
+                <div class="about-story-text" data-aos="fade-right">
+                    <p>ඇත්තටම අපි ගැන කිව්වොත් අපි මාර පොරවල් නෙවේ. අපි අපිට පුලුවන් විදියට ඔයාලට උදව් කරනව. අපි හිතනව ඔයාලත් අපිට උදව් කරයි කියල.</p>
+                    
+                    <p>මොකද මේ වගේ වෙබ් පේජ් එකකට games ගොඩක් Upload කරනව කියන්නෙ ගොඩක් අපේ time එක යන වැඩක් හැබැයි මේ වගේ දේකට කාලය යොදවන එක අපිට සතුටක්, මොකද කිව්වොත් අපිට ඕනෙ experience එක හදාගන්න සහ අපිව දන්න පිරිසක් හදාගන්න.</p>
+                    
+                    <p>අපි හිතනව ඔයාලගෙ support එක අපිට ලැබෙයි කියල. පොඩ්ඩක් ඉවසල ඉමු අපි ගේම්ස් ටික ඉක්මනට web site එකට දාන්නම් පොඩ්ඩ පොඩ්ඩ. ස්තූතියි!</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="total-games-count">0</div>
+                            <div class="stat-label">Total Games</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="happy-users-count">0</div>
+                            <div class="stat-label">Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="team-members-count">0</div>
+                            <div class="stat-label">Visitors</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-story-image" data-aos="fade-left">
+                    <img src="https://img.freepik.com/premium-photo/digital-constructs-creative-characters-avatars-business-gaming-adventure-design_1006514-39618.jpg" alt="Our Story" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section mission-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="section-subtitle">What drives us forward</p>
+            </div>
+            
+            <div class="mission-cards">
+                <div class="mission-card" data-aos="zoom-in">
+                    <div class="mission-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Quality Games</h3>
+                    <p>We provide only the best quality games, thoroughly tested before release to ensure perfect performance.</p>
+                </div>
+                
+                <div class="mission-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="mission-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Downloads</h3>
+                    <p>Optimized servers ensure you get the fastest download speeds possible for your games.</p>
+                </div>
+                
+                <div class="mission-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="mission-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Great Support</h3>
+                    <p>Our dedicated support team is always ready to help with any issues you might encounter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet The Team</h2>
+                <p class="section-subtitle">The people behind JNR Games Store</p>
+            </div>
+            
+            <div class="team-members">
+                <div class="team-member" data-aos="fade-up">
+                    <div class="member-image">
+                        <img src="https://img.freepik.com/premium-photo/le-regard-percant-d-un-mysterieux-journaliste-sourire-eclatant-dans-un-avatar-tiktok-ultrarealist_1015980-14749.jpg" alt="Team Member">
+                        <div class="member-social">
+                            <a href="https://youtube.com/@mrjnryt-gg?si=0NXeWmm_W5RlaCyP"><i class="fab fa-youtube"></i></a>
+                            <a href="https://t.me/mrjnryt999"><i class="fab fa-telegram"></i></a>
+                            <a href="https://discordapp.com/users/jnr6000"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Mr.JNR</h3>
+                        <p>Founder & CEO</p>
+                        <p>Web Developer</p>
+                        <p>Head of Development</p>
+                    </div>
+                </div>
+                
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="https://img.freepik.com/premium-photo/cartoon-man-pointing-computer-screen_867452-8267.jpg" alt="Team Member">
+                        <div class="member-social">
+                            <a href="https://wa.me/+94769127205?text=Hi."><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://t.me/+94769127205"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Mr.Sanju</h3>
+                        <p>Community Manager</p>
+                        <p>2nd CEO</p>
+                    </div>
+                </div>
+
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="https://d32qys9a6wm9no.cloudfront.net/images/movies/backdrop/0a/d151a034aedbb6d1522ec55ade356256_1280x720.jpeg?t=1660042020" alt="Team Member">
+                        
+                    </div>
+                    <div class="member-info">
+                        <h3>Mr.Big Devil</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="https://images.pexels.com/photos/32477047/pexels-photo-32477047.png?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Team Member">
+                        <div class="member-social">
+                            <a href="https://youtube.com/@nuwa-lk?si=bxn4OeuwQPgjDXmV"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Mr.Nuwa Lk</h3>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Promotional Section for V2Ray Configs -->
+    <section class="section promo-section" data-aos="zoom-in">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-icon"><i class="fas fa-shield-alt"></i></div>
+                <h2 class="promo-title">Get Free, Secure & Fast V2Ray Configs</h2>
+                <p class="promo-text">
+                    Protect your privacy and enjoy a faster internet connection. Visit our partner site to get your free V2Ray configurations now!
+                </p>
+                <a href="https://cloudnet.one/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit & Get Configs</a>
+            </div>
+        </div>
+    </section>
+    <!-- End of Promotional Section -->
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="Games/images/jnr gs logo.png" alt="JNR Games Store">
+                        <span class="footer-logo-text">JNR <span>Games</span></span>
+                    </div>
+                    <p class="footer-about">Your premier destination for high-quality game downloads. We offer a wide selection of games across all genres.</p>
+                    <div class="footer-social">
+                        <a href="https://discord.gg/MmqPvcZC" class="social-icon">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://chat.whatsapp.com/KEDTJi6ZqIf5fsSYPyzUB3" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/cloudnet6000" class="social-icon">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@cloudnet6000?is_from_webapp=1&sender_device=pc" class="social-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://youtube.com/@mrjnryt-gg?si=LiZ8J5YZE2hdH7Ud" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="available-games/available-games.html" class="footer-link">Games List</a></li>
+                        <li><a href="request.html" class="footer-link">Request Games</a></li>
+                        <li><a href="search/search.html" class="footer-link">Search Games</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="#" class="footer-link">Installation Help</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:jnrsanta249@gmail.com" class="footer-link">jnrsanta249@gmail.com</a></li>
+                        <li><a href="https://chat.whatsapp.com/KEDTJi6ZqIf5fsSYPyzUB3" class="footer-link">WhatsApp Group</a></li>
+                        <li><a href="https://t.me/cloudnet6000" class="footer-link">Telegram Channel</a></li>
+                        <li><a href="/donations.html" class="footer-link donate-link">Donate to Support Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 JNR Games Store. All Rights Reserved.</p>
+                <!-- Visitor Counter -->
+                <span style="pointer-events: none; cursor: default;">
+                    <script src="https://freevisitorcounters.com/en/home/counter/1323719/t/11"></script>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="Games/js/downloadbtn.js"></script>
+    <script src="js/game-store-script.js"></script>
+    <script src="/Games/js/donations.js"></script>
+    <script src="js/counter.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Animate stats counting
+        $(document).ready(function() {
+            $('.stat-number').each(function() {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        });
+    </script>
+    <script type="module" src="/js/auth.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+    <div id="notifPopup">
+  <h3>🆕 New Games</h3>
+  <ul id="notifList"></ul>
+</body>
+</html>

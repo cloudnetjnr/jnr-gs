@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Support JNR Games Store with your donations to help us maintain and expand our free game offerings">
+        <title>Donate | JNR Games Store</title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="/Games/images/jnr gs logo.png">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/game-store-styles.css">
+        <link rel="stylesheet" href="/css/donation.css">
+        
+        <!-- AOS Animation -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/auth.css">
+    </head>
+    
+    <body>
+        <!-- Animated Unicorn -->
+        <div class="unicorn-container">
+            <div class="unicorn">
+                <div class="horn"></div>
+                <div class="head">
+                    <div class="eye"></div>
+                    <div class="ear"></div>
+                </div>
+                <div class="body">
+                    <div class="leg"></div>
+                    <div class="leg"></div>
+                    <div class="tail"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="donation-ticker"><div class="ticker-header">Recent Supporters</div><div class="ticker-content"></div></div>
+            <div class="container navbar-container">
+                <a href="/index.html" class="logo">
+                    <img src="/Games/images/jnr gs logo.png" alt="JNR Games Store">
+                    <span class="logo-text">JNR <br><span>Games</span></span> <br><br><br><br><br>
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="/index.html" class="nav-link">Home</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="https://blog-chat.cloudnet.one/" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a>
+                    <a href="/available-games.html" class="nav-link ">Games</a>
+                    <a href="/ytchannel.html" class="nav-link">Channels</a>
+                    <a href="https://forms.gle/xJTTuoYGUe6YYD8x5" class="nav-link" target="_blank" rel="noopener noreferrer">Request</a>
+                    <div class="live-search-container">
+                        <input type="text" id="liveSearchInput" placeholder="Search games...">
+                        <div id="liveSearchResults" class="live-search-results">
+                            </div>
+                    </div>
+                    <a href="/donations.html" class="donate-btn active">
+                        <span></span><span></span><span></span><span></span>
+                         Donate
+                    </a>
+                    
+                </div>
+                <div id="navAuthSection">
+                  <div id="notification"><i id="notifBell" class="fas fa-bell"></i><span id="notifBadge">0</span></div>
+                  <button id="googleLogin">Login with Google</button><button id="logout">Logout</button>
+                  <div id="userProfile"><img id="userPic" src="" alt="User"><span id="userName"></span></div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero hero-mini">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Support JNR Games</h1>
+                    <p class="hero-subtitle">Your donations help us keep the site running and add more games</p>
+                    <div class="breadcrumbs">
+                        <a href="/index.html">Home</a>
+                        <span>/</span>
+                        <a href="/donations.html">Donate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="section donation-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Make a Donation</h2>
+                    <p class="section-subtitle">Choose your preferred donation method</p>
+                </div>
+
+                <!-- Donation Goals -->
+                <div class="donation-goals">
+                    <div class="goal-card">
+                        <div class="goal-header">
+                            <h3>Monthly Server Costs</h3>
+                            
+                        </div>
+                        
+                        <p class="goal-description">Help cover our monthly server and hosting expenses to keep the site fast and reliable.</p>
+                    </div>
+
+                    <div class="goal-card">
+                        <div class="goal-header">
+                            <h3>New Game Purchases</h3>
+                            
+                        </div>
+                        
+                        <p class="goal-description">Funds to purchase new games to add to our collection each month.</p>
+                    </div>
+
+                    <div class="goal-card">
+                        <div class="goal-header">
+                            <h3>Site Improvements</h3>
+                            
+                        </div>
+                        
+                        <p class="goal-description">Improving the site with new features, better design, and faster downloads.</p>
+                    </div>
+                </div>
+
+                <!-- Donation Methods -->
+                
+
+                    <div class="method-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="method-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3 class="method-title">Bank Transfer</h3>
+                        <p class="method-description">Direct bank transfer for those who prefer traditional methods.</p>
+                        <a href="https://wa.me/+94789508354?text=send me payment details for donate." class="btn btn-donate" target="_blank">
+                            <i class="fas fa-university"></i> Donate with Bank transfer
+                        </a>
+                    </div><br>
+
+                    <div class="method-card" data-aos="fade-up" data-aos-delay="100">
+    <div class="method-icon">
+        <i class="fas fa-coffee"></i>
+    </div>
+    <h3 class="method-title">Buy Me a Coffee</h3>
+    <p class="method-description">A simple and friendly way to show your appreciation and support my work.</p>
+    <a href="https://buymeacoffee.com/balawathbad" class="btn btn-donate" target="_blank">
+        <i class="fas fa-coffee"></i> Buy Me a Coffee
+    </a>
+</div>
+
+                    
+                </div>
+
+                <!-- Bank Details Modal -->
+                <div class="modal" id="bankModal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Bank Transfer Details</h3>
+                        <div class="bank-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Bank Name:</span>
+                                <span class="detail-value">Example Bank</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Account Name:</span>
+                                <span class="detail-value">JNR Games Store</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Account Number:</span>
+                                <span class="detail-value">1234567890</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">SWIFT/BIC:</span>
+                                <span class="detail-value">EXMPUS33</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Routing Number:</span>
+                                <span class="detail-value">021000021</span>
+                            </div>
+                        </div>
+                        <p class="modal-note">Please include "JNR Donation" in the transfer description.</p>
+                    </div>
+                </div>
+
+                
+                </div>
+
+                <!-- Why Donate Section -->
+                <div class="why-donate">
+                    <h3 class="why-title">Why Donate?</h3>
+                    <div class="reasons-grid">
+                        <div class="reason-card">
+                            <div class="reason-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4>Server Costs</h4>
+                            <p>Hosting and bandwidth aren't free. Your donations help keep our servers running smoothly.</p>
+                        </div>
+
+                        <div class="reason-card">
+                            <div class="reason-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h4>New Games</h4>
+                            <p>We use donations to purchase new games to add to our collection for everyone to enjoy.</p>
+                        </div>
+
+                        <div class="reason-card">
+                            <div class="reason-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4>Site Improvements</h4>
+                            <p>Funds go toward developing new features and improving the user experience.</p>
+                        </div>
+
+                        <div class="reason-card">
+                            <div class="reason-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Security</h4>
+                            <p>Keeping the site secure with SSL certificates and protection against attacks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+        
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <div class="footer-logo">
+                            <img src="/Games/images/jnr gs logo.png" alt="JNR Games Store">
+                            <span class="footer-logo-text">JNR <span>Games</span></span>
+                        </div>
+                        <p class="footer-about">Your premier destination for high-quality game downloads. We offer a wide selection of games across all genres.</p>
+                        <div class="footer-social">
+                            <a href="https://discord.gg/MmqPvcZC" class="social-icon">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                            <a href="https://chat.whatsapp.com/KEDTJi6ZqIf5fsSYPyzUB3" class="social-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://t.me/cloudnet6000" class="social-icon">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@cloudnet6000?is_from_webapp=1&sender_device=pc" class="social-icon">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://youtube.com/@mrjnryt-gg?si=LiZ8J5YZE2hdH7Ud" class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="/index.html" class="footer-link">Home</a></li>
+                            <li><a href="/about.html" class="footer-link">About Us</a></li>
+                            <li><a href="/available-games/available-games.html" class="footer-link">Games List</a></li>
+                            <li><a href="/request.html" class="footer-link">Request Games</a></li>
+                            <li><a href="/donations.html" class="footer-link">Support Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3 class="footer-title">Support</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">FAQ</a></li>
+                            <li><a href="#" class="footer-link">Installation Help</a></li>
+                            <li><a href="#" class="footer-link">Contact Us</a></li>
+                            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h3 class="footer-title">Contact Info</h3>
+                        <ul class="footer-links">
+                            <li><a href="mailto:jnrsanta249@gmail.com" class="footer-link">jnrsanta249@gmail.com</a></li>
+                            <li><a href="https://chat.whatsapp.com/KEDTJi6ZqIf5fsSYPyzUB3" class="footer-link">WhatsApp Group</a></li>
+                            <li><a href="https://t.me/cloudnet6000" class="footer-link">Telegram Channel</a></li>
+                            <li><a href="/donations.html" class="footer-link donate-link">Donate to Support Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2023 JNR Games Store. All Rights Reserved.</p>
+                    <!-- Visitor Counter -->
+                    <span style="pointer-events: none; cursor: default;">
+                        <script src="https://freevisitorcounters.com/en/home/counter/1323719/t/11"></script>
+                    </span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <a href="#" class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+        <!-- JavaScript -->
+        <script src="/js/game-store-script.js"></script>
+        <script src="/Games/js/donations.js"></script>
+        
+        <!-- AOS Animation -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Donation page specific scripts
+            document.addEventListener('DOMContentLoaded', function() {
+                // Modal functionality
+                const bankModal = document.getElementById('bankModal');
+                const cryptoModal = document.getElementById('cryptoModal');
+                const showBankBtn = document.getElementById('showBankDetails');
+                const showCryptoBtn = document.getElementById('showCryptoDetails');
+                const closeBtns = document.querySelectorAll('.close-modal');
+
+                showBankBtn.addEventListener('click', () => {
+                    bankModal.style.display = 'block';
+                });
+
+                showCryptoBtn.addEventListener('click', () => {
+                    cryptoModal.style.display = 'block';
+                });
+
+                closeBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        this.closest('.modal').style.display = 'none';
+                    });
+                });
+
+                window.addEventListener('click', (e) => {
+                    if (e.target === bankModal) {
+                        bankModal.style.display = 'none';
+                    }
+                    if (e.target === cryptoModal) {
+                        cryptoModal.style.display = 'none';
+                    }
+                });
+
+                // Copy crypto address functionality
+                const copyBtns = document.querySelectorAll('.copy-btn');
+                copyBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const addressId = this.getAttribute('data-address');
+                        const address = document.getElementById(addressId).textContent;
+                        
+                        navigator.clipboard.writeText(address).then(() => {
+                            const originalIcon = this.innerHTML;
+                            this.innerHTML = '<i class="fas fa-check"></i>';
+                            setTimeout(() => {
+                                this.innerHTML = originalIcon;
+                            }, 2000);
+                        });
+                    });
+                });
+
+                // Sample recent donors data (in a real implementation, this would come from a database)
+                const recentDonors = [
+                    { name: "Alex G.", amount: "$25", method: "PayPal", time: "2 hours ago" },
+                    { name: "Sarah M.", amount: "$10", method: "Bitcoin", time: "5 hours ago" },
+                    { name: "James T.", amount: "$50", method: "Bank Transfer", time: "1 day ago" },
+                    { name: "Anonymous", amount: "$15", method: "PayPal", time: "1 day ago" },
+                    { name: "Robert K.", amount: "$30", method: "Ethereum", time: "2 days ago" },
+                    { name: "Emily S.", amount: "$20", method: "PayPal", time: "3 days ago" }
+                ];
+
+                // Populate recent donors
+                const donorsGrid = document.querySelector('.donors-grid');
+                recentDonors.forEach(donor => {
+                    const donorCard = document.createElement('div');
+                    donorCard.className = 'donor-card';
+                    donorCard.innerHTML = `
+                        <div class="donor-avatar">${donor.name.charAt(0)}</div>
+                        <div class="donor-info">
+                            <h4>${donor.name}</h4>
+                            <p>Donated ${donor.amount} via ${donor.method}</p>
+                            <span class="donor-time">${donor.time}</span>
+                        </div>
+                    `;
+                    donorsGrid.appendChild(donorCard);
+                });
+
+                // Ticker functionality
+                const tickerContent = document.querySelector('.ticker-content');
+                const donorNames = recentDonors.map(donor => `${donor.name} (${donor.amount})`);
+                
+                // Create a continuous ticker by duplicating the content
+                tickerContent.textContent = donorNames.join(' • ') + ' • ';
+                tickerContent.innerHTML += tickerContent.innerHTML;
+            });
+
+
+             
+
+
+
+
+
+            // Donation Ticker
+        document.addEventListener('DOMContentLoaded', function() {
+    // Create the social media container
+    const socialContainer = document.createElement('div');
+    socialContainer.className = 'social-media-links';
+    socialContainer.style.position = 'fixed';
+    socialContainer.style.bottom = '20px';
+    socialContainer.style.left = '20px';
+    socialContainer.style.zIndex = '1000';
+    socialContainer.style.display = 'flex';
+    socialContainer.style.flexDirection = 'column';
+    socialContainer.style.gap = '12px';
+    socialContainer.style.alignItems = 'flex-start';
+    socialContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    socialContainer.style.padding = '12px';
+    socialContainer.style.borderRadius = '10px';
+    socialContainer.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+
+    // WhatsApp link (using Simple Icons CDN)
+    const whatsappLink = document.createElement('a');
+    whatsappLink.href = 'https://whatsapp.com/channel/0029VawgHtz2v1IppPsFv11P'; // Replace with your WhatsApp link
+    whatsappLink.target = '_blank';
+    whatsappLink.rel = 'noopener noreferrer';
+    whatsappLink.innerHTML = `
+        <img src="https://img.icons8.com/?size=100&id=d5ntEsf0JRhM&format=png&color=000000" alt="WhatsApp" width="24" height="24">
+        <span style="margin-left: 8px;">WhatsApp</span>
+    `;
+    whatsappLink.style.display = 'flex';
+    whatsappLink.style.alignItems = 'center';
+    whatsappLink.style.textDecoration = 'none';
+    whatsappLink.style.color = '#25D366'; // WhatsApp brand color
+    whatsappLink.style.fontWeight = '500';
+
+    // Telegram link (using Simple Icons CDN)
+    const telegramLink = document.createElement('a');
+    telegramLink.href = 'https://t.me/jnrgamesstore'; // Replace with your Telegram
+    telegramLink.target = '_blank';
+    telegramLink.rel = 'noopener noreferrer';
+    telegramLink.innerHTML = `
+        <img src="https://img.icons8.com/?size=100&id=MIMjVKoXINIT&format=png&color=000000" alt="Telegram" width="24" height="24">
+        <span style="margin-left: 8px;">Telegram</span>
+    `;
+    telegramLink.style.display = 'flex';
+    telegramLink.style.alignItems = 'center';
+    telegramLink.style.textDecoration = 'none';
+    telegramLink.style.color = '#0088CC'; // Telegram brand color
+    telegramLink.style.fontWeight = '500';
+
+    // Discord link (using Simple Icons CDN)
+    const discordLink = document.createElement('a');
+    discordLink.href = 'https://discord.gg/gUzSjRJZ'; // Replace with your Discord
+    discordLink.target = '_blank';
+    discordLink.rel = 'noopener noreferrer';
+    discordLink.innerHTML = `
+        <img src="https://img.icons8.com/?size=100&id=M725CLW4L7wE&format=png&color=000000" alt="Discord" width="24" height="24">
+        <span style="margin-left: 8px;">Discord</span>
+    `;
+    discordLink.style.display = 'flex';
+    discordLink.style.alignItems = 'center';
+    discordLink.style.textDecoration = 'none';
+    discordLink.style.color = '#5865F2'; // Discord brand color
+    discordLink.style.fontWeight = '500';
+
+    // Add hover effects
+    [whatsappLink, telegramLink, discordLink].forEach(link => {
+        link.style.transition = 'transform 0.2s';
+        link.onmouseenter = () => link.style.transform = 'scale(1.05)';
+        link.onmouseleave = () => link.style.transform = 'scale(1)';
+    });
+
+    // Add links to container
+    socialContainer.appendChild(whatsappLink);
+    socialContainer.appendChild(telegramLink);
+    socialContainer.appendChild(discordLink);
+
+    // Add container to body
+    document.body.appendChild(socialContainer);
+});
+
+// Create and inject the loader HTML and CSS
+function createLoader() {
+  // Create style element with all CSS
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0a0a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    
+    .loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .loader-logo img {
+      width: 100px;
+      height: auto;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+    
+    .loader-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    
+    .loader-progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    
+    .loader-text {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  `;
+  
+  // Create loader HTML structure
+  const loaderHTML = `
+    <div class="loader">
+      <div class="loader-logo">
+        <img src="/Games/images/jnr gs logo.png" alt="JNR Games Store">
+      </div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <div class="loader-text">Loading...</div>
+    </div>
+  `;
+  
+  // Create loader wrapper and append everything
+  const loaderWrapper = document.createElement('div');
+  loaderWrapper.className = 'loader-wrapper';
+  loaderWrapper.innerHTML = loaderHTML;
+  
+  // Add to document
+  document.body.prepend(loaderWrapper);
+  document.head.appendChild(style);
+}
+
+// Initialize the loader
+document.addEventListener('DOMContentLoaded', function() {
+  createLoader();
+  
+  const loaderWrapper = document.querySelector('.loader-wrapper');
+  const loaderProgress = document.querySelector('.loader-progress');
+  
+  // Simulate loading progress
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.random() * 10;
+    if (progress > 100) progress = 100;
+    loaderProgress.style.width = progress + '%';
+    
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        loaderWrapper.style.opacity = '0';
+        setTimeout(() => {
+          loaderWrapper.remove();
+        }, 500);
+      }, 300);
+    }
+  }, 100);
+  
+  // Ensure loader hides even if there's an error
+  window.addEventListener('load', function() {
+    if (progress < 100) {
+      progress = 100;
+      loaderProgress.style.width = '100%';
+      setTimeout(() => {
+        loaderWrapper.style.opacity = '0';
+        setTimeout(() => {
+          loaderWrapper.remove();
+        }, 500);
+      }, 300);
+    }
+  });
+});
+
+        </script>
+        <script type="module" src="/js/auth.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        </script>
+        <div id="notifPopup">
+      <h3>🆕 New Games</h3>
+      <ul id="notifList"></ul>
+    </body>
+</html>
