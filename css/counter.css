@@ -1,0 +1,45 @@
+/* Counter Section */
+.counter-section {
+    background-color: transparent; /* Make section background transparent */
+    padding: 60px 0;
+  }
+  
+  .counter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .counter-item {
+    padding: 30px;
+    border-radius: 10px;
+    background: transparent; /* Make counter items transparent */
+    border: 1px solid rgba(0, 204, 153, 0.3); /* Subtle border for visibility */
+    transition: var(--transition);
+  }
+  
+  .counter-number {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary); /* Keep numbers visible with primary color */
+    margin-bottom: 10px;
+    background: transparent; /* Ensure number background is transparent */
+    text-shadow: 0 0 10px rgba(0, 204, 153, 0.3); /* Optional: glow effect */
+  }
+  
+  .counter-label {
+    color: var(--gray);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: transparent; /* Ensure label background is transparent */
+  }
+  
+  /* Remove any hover effects that might hide elements */
+  .counter-item:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(0, 204, 153, 0.3); /* Keep border subtle on hover */
+  }

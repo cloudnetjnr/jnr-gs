@@ -1,0 +1,315 @@
+/* Ensure your CSS variables are defined, for example: */
+:root {
+    --primary: #00cc99;       /* Tealish Green */
+    --primary-dark: #009973;
+    --secondary: #ff6b6b;     /* Coral Red */
+    --secondary-dark: #e05252;
+    --darker: #121222; /* Example for modal background */
+    /* Add other color variables your site uses */
+}
+
+/* Styles for the download button container, if you want to adjust layout */
+/* This is the version from the previous artifact, using flexbox */
+/*
+.download-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+*/
+
+/* Download Section Styling - User Provided */
+.download-section {
+    background: rgba(0, 20, 40, 0.5);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 204, 153, 0.2);
+}
+
+/* Section Title - User Provided (Generic, can be used elsewhere too) */
+.section-title {
+    color: var(--primary);
+    font-size: 1.5rem; /* Was 1.5rem, kept user's version */
+    margin-bottom: 15px; /* Was 15px, kept user's version */
+}
+
+/* Password Badge - User Provided */
+.password-badge {
+    background: rgba(0, 204, 153, 0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: monospace;
+}
+
+/* Download Container - User Provided (using Grid) */
+.download-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+
+/* General styles for all download buttons */
+.download-btn {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px; /* User provided padding */
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif; /* Kept from previous */
+    font-weight: 600; /* Kept from previous */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: white; /* User provided color */
+    min-width: 200px; /* Adjusted from 220px to align with user's grid minmax */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kept from previous */
+    border: none; /* Explicitly no border unless overridden */
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Kept from previous */
+}
+
+.download-icon {
+    margin-right: 12px;
+    font-size: 1.2rem; /* User provided font-size */
+    display: flex; /* Added to ensure icon aligns well */
+    align-items: center; /* Added to ensure icon aligns well */
+}
+
+.btn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Added to align text left */
+    line-height: 1.2; /* Added for better spacing */
+}
+
+.btn-text {
+    font-weight: 600;
+    font-size: 0.95rem; /* User provided font-size */
+}
+
+.btn-size {
+    font-size: 0.8rem; /* User provided font-size */
+    opacity: 0.8;
+    margin-top: 2px; /* Added for spacing */
+}
+
+/* Primary Direct Download Button - User Provided */
+.direct-download {
+    background: rgba(0, 102, 204, 0.3);
+    border: 1px solid var(--primary);
+}
+
+.direct-download:hover {
+    background: rgba(0, 102, 204, 0.5);
+    /* transform: translateY(-2px); Already in .download-btn:hover */
+}
+
+/*
+   CSS for Alternative Direct Download Buttons (.direct-download-alt)
+   This is from the previous artifact, adjusted slightly to fit the new base .download-btn
+*/
+.direct-download-alt {
+    background: linear-gradient(135deg, #4a5568, #2d3748); /* Dark Gray gradient */
+    border: 1px solid #718096; /* Slightly lighter border for definition */
+    color: #fff;
+}
+
+.direct-download-alt:hover {
+    background: linear-gradient(135deg, #2d3748, #4a5568); /* Invert gradient on hover */
+    border-color: #a0aec0;
+    /* transform: translateY(-2px); Already in .download-btn:hover */
+    /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); Already in .download-btn:hover, but can be made stronger if needed */
+}
+
+.direct-download-alt .download-icon i {
+    color: #a0aec0; /* Lighter icon color for contrast, or use #fff */
+}
+
+.direct-download-alt:hover .download-icon i {
+    color: #fff;
+}
+
+
+/* Parts Download Button - User Provided */
+.parts-download {
+    background: rgba(106, 90, 205, 0.3);
+    border: 1px solid slateblue;
+    cursor: pointer; /* Good to have for buttons */
+}
+
+.parts-download:hover {
+    background: rgba(106, 90, 205, 0.5);
+    /* transform: translateY(-2px); Already in .download-btn:hover */
+}
+
+/* Torrent Download Button - User Provided */
+.torrent-download {
+    background: rgba(205, 90, 90, 0.3);
+    border: 1px solid indianred;
+}
+
+.torrent-download:hover {
+    background: rgba(205, 90, 90, 0.5);
+    /* transform: translateY(-2px); Already in .download-btn:hover */
+}
+
+
+/* Modal Styling - User Provided (with some fallbacks from previous) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* User provided, was rgba(20, 20, 40, 0.9) */
+    justify-content: center; /* Added from previous for centering */
+    align-items: center; /* Added from previous for centering */
+    padding-top: 0; /* Override previous padding-top if any */
+}
+
+.modal-content {
+    background: var(--darker, #1a1a2e); /* User provided var(--darker), fallback to previous */
+    margin: 5% auto; /* User provided */
+    padding: 20px;
+    border: 1px solid var(--primary);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    animation: modalopen 0.3s;
+    box-shadow: 0 8px 25px rgba(0,204,153,0.2); /* Kept from previous */
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px)}
+    to {opacity: 1; transform: translateY(0)}
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--primary-dark); /* Kept from previous */
+}
+
+.modal-header h4 { /* Added from previous */
+    color: var(--primary);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white; /* User provided, was #ccc */
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Added transition */
+}
+.close-btn:hover { /* Added from previous */
+    color: var(--primary);
+}
+
+.parts-list {
+    list-style: none;
+    padding-left: 0; /* Added to remove default padding */
+}
+
+.part-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* User provided, was #2a2a4e */
+}
+.part-item:last-child { /* Added from previous */
+    border-bottom: none;
+}
+
+.part-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    /* background-color: var(--primary); Kept from previous, but user's color might be preferred */
+    /* padding: 5px 10px; Added for better click area */
+    /* border-radius: 5px; Added for consistency */
+}
+
+.part-link:hover {
+    color: white;
+    /* background-color: var(--primary-dark); Kept from previous */
+}
+
+.part-link i {
+    margin-right: 8px;
+}
+
+/* Installation Section - User Provided */
+.installation-section {
+    background: rgba(0, 20, 40, 0.5);
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid rgba(0, 204, 153, 0.2);
+    margin-bottom: 30px; /* Added margin like download-section */
+}
+
+.youtube-btn {
+    display: inline-flex; /* Changed to inline-flex for better icon alignment */
+    align-items: center; /* Align icon and text */
+    background: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.youtube-btn:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+.youtube-btn i {
+    margin-right: 8px;
+}
+
+.installation-steps {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.installation-steps ol {
+    padding-left: 20px;
+}
+
+.installation-steps li {
+    margin-bottom: 8px;
+    line-height: 1.5; /* Added for readability */
+}
+
+/* Responsive - User Provided */
+@media (max-width: 768px) {
+    .download-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    .download-btn {
+        min-width: unset; /* Allow buttons to be smaller on mobile */
+        width: 100%; /* Make buttons full width */
+        justify-content: center; /* Center content within button */
+    }
+    .btn-content {
+        align-items: center; /* Center text if button is full width */
+    }
+}
+

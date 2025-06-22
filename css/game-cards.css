@@ -1,0 +1,134 @@
+/* css/game-cards.css */
+/* Make sure your existing game card styles are here or in game-store-styles.css */
+
+/* Styles for the dynamically generated game cards in grids */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax as needed */
+    gap: 25px; /* Adjust gap */
+}
+
+.game-card {
+    background: var(--dark-gray, #1a1a2e); /* Theme color or fallback */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+    /* Ensure --primary-rgb is defined in your :root or use a solid color */
+    border: 1px solid rgba(var(--primary-rgb, 0, 204, 153), 0.1);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(var(--primary-rgb, 0, 204, 153), 0.3);
+    border-color: var(--primary);
+}
+
+.game-image-link { /* Link wrapping the image */
+    display: block;
+    position: relative; /* For badges */
+}
+
+.game-image { /* Container for the image itself */
+    height: 180px; /* Adjust height as needed for available-games.html cards */
+    overflow: hidden;
+    position: relative; /* For overlay effects if any */
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.05);
+}
+
+.game-badge { /* For "New", "Featured" badges on image */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent, #ff4d4d); /* Theme accent or fallback */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.game-content {
+    padding: 15px;
+    flex-grow: 1; /* Allows content to fill space and push button down */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom if card heights vary */
+}
+
+.game-title {
+    font-size: 1.1rem; /* Or your preferred size */
+    font-weight: 600;
+    color: var(--light, #f0f0f0);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+.game-title a {
+    color: inherit;
+    text-decoration: none;
+}
+.game-title a:hover {
+    color: var(--primary);
+}
+
+.game-meta { /* Genre or category */
+    font-size: 0.85rem;
+    color: var(--gray, #aaa);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* NEW STYLE for game download size on available-games.html cards */
+.game-download-size {
+    font-size: 0.85rem;
+    color: var(--gray); /* Or var(--light) if you want it brighter */
+    margin-top: 5px; /* Space from meta */
+    margin-bottom: 10px; /* Space before button */
+}
+
+.game-stats { /* This will only show on pages other than 'available-games' */
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--gray, #aaa);
+    margin-bottom: 12px;
+}
+.game-stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.game-stats i {
+    color: var(--primary);
+}
+
+.btn-sm { /* Styling for the "View Game" button */
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    align-self: flex-start; /* Align button to the start of the cross axis */
+    margin-top: auto; /* Pushes button to bottom of flex container if content above is shorter */
+}
+
+/*
+    Make sure you have --primary-rgb defined in your :root variables
+    in game-store-styles.css. For example, if --primary is #00cc99,
+    you could add:
+    :root {
+        --primary: #00cc99;
+        --primary-rgb: 0, 204, 153;
+        ... other variables ...
+    }
+*/
